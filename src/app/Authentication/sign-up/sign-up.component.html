@@ -20,6 +20,13 @@
             </div>
             <div>
                 <mat-form-field class="w-full" appearance="outline" >
+                    <mat-label>Email</mat-label>
+                    <input required matInput type="text" [formControlName]="'email'">
+                    <mat-error *ngIf="checkError('required')">Required</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="w-full" appearance="outline" >
                     <mat-label>Username</mat-label>
                     <input required matInput type="text" [formControlName]="'username'">
                     <mat-error *ngIf="checkError('minLength') || checkError('maxLength')">Username must have 6 to 10 characters</mat-error>

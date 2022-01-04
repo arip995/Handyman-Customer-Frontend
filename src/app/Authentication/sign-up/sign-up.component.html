@@ -1,57 +1,95 @@
-<div class="bg-blue-50 p-8 w-full flex flex-col h-screen justify-center items-center content-center">
+<div class="bg-blue-50 pt-12 pr-8 pl-8 w-full flex flex-col h-screen justify-center items-center content-center">
     <div class="w-full xl:w-3/12">
         <form class="shadow-2xl rounded-lg bg-white px-4 py-4" [formGroup]="signUpForm">
             <div style="font-family: Arial;font-style: normal;font-weight: normal;font-size: 36px;line-height: 48px;letter-spacing: 0.2px;color: #0A2540;" class="mb-4">
                 Sign Up
             </div>
-            <div>
-                <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Name</mat-label>
-                    <input required matInput type="text" [formControlName]="'name'">
-                <mat-error *ngIf="checkError('required')">Required</mat-error>
-                </mat-form-field>
+
+
+            <!-- Name -->
+            <div class="grid grid-cols-2 gap-4">
+                <!-- First Name -->
+                <div>
+                    <mat-label >First Name *</mat-label>
+                    <mat-form-field class="w-full" appearance="outline">
+                        <input required matInput type="text" [formControlName]="'firstname'">
+                    <mat-error *ngIf="checkError('required')">Required</mat-error>
+                    </mat-form-field>
+                </div>
+                    
+
+
+                <!-- Last Name -->
+                <div>
+                    <mat-label>Last Name *</mat-label>
+                    <mat-form-field class="w-full" appearance="outline">
+                        <input required matInput type="text" [formControlName]="'lastname'">
+                    <mat-error *ngIf="checkError('required')">Required</mat-error>
+                    </mat-form-field>
+                </div>
             </div>
+
+
+            <!-- Mobile Number -->
             <div>
+                <mat-label>Mobile Number *</mat-label>
                 <mat-form-field class="w-full" appearance="outline" >
-                    <mat-label>Mobile Number</mat-label>
                     <input required matInput type="text" [formControlName]="'mobileNumber'">
                     <mat-error *ngIf="checkError('min')">Enter a valid Mobile Number</mat-error>
                 </mat-form-field>
             </div>
+
+
+            <!-- Email -->
             <div>
+                <mat-label>Email *</mat-label>
                 <mat-form-field class="w-full" appearance="outline" >
-                    <mat-label>Email</mat-label>
                     <input required matInput type="text" [formControlName]="'email'">
                     <mat-error *ngIf="checkError('required')">Required</mat-error>
                 </mat-form-field>
             </div>
+
+
+            <!-- Username -->
             <div>
+                <mat-label>Username *</mat-label>
                 <mat-form-field class="w-full" appearance="outline" >
-                    <mat-label>Username</mat-label>
                     <input required matInput type="text" [formControlName]="'username'">
                     <mat-error *ngIf="checkError('minLength') || checkError('maxLength')">Username must have 6 to 10 characters</mat-error>
                 </mat-form-field>
             </div>
+
+
+            <!-- Password -->
             <div>
+                <mat-label>Password *</mat-label>
                 <mat-form-field class="w-full" appearance="outline" >
-                    <mat-label>Password</mat-label>
-                    <input [(ngModel)]="password" required matInput type="password" [formControlName]="'password'">
+                    <input [(ngModel)]="password" required matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="checkError('required')">Required</mat-error>
+                    <mat-hint class="text-red-600" *ngIf="passwordMatch">Password should match</mat-hint>
+                </mat-form-field>
+            </div>
+
+
+            <!-- Confirm Password -->
+            <div>
+                <mat-label>Confirm Password *</mat-label>
+                <mat-form-field class="w-full" appearance="outline" >
+                    <input [(ngModel)]="confirmPassword" required matInput [type]="confirmHide ? 'password' : 'text'" [formControlName]="'confirmPassword'">
+                    <button mat-icon-button matSuffix (click)="confirmHide = !confirmHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmHide">
+                        <mat-icon>{{confirmHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                     <mat-error *ngIf="checkError('required')">Required</mat-error>
                     <mat-hint class="text-red-600" *ngIf="passwordMatch">Password should match</mat-hint>
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field class="w-full" appearance="outline" >
-                    <mat-label>Confirm Password</mat-label>
-                    <input [(ngModel)]="confirmPassword" required matInput type="password" [formControlName]="'confirmPassword'">
-                    <mat-error *ngIf="checkError('required')">Required</mat-error>
-                    <mat-hint class="text-red-600" *ngIf="passwordMatch">Password should match</mat-hint>
-                </mat-form-field>
+                <button style="color: white; background-color: rgb(1, 85, 241);" (click)="signUp()" mat-raised-button class="w-full" type="submit">Sign Up</button>
             </div>
-            <div>
-                <button (click)="signUp()" mat-raised-button class="w-full" color="primary">Sign Up</button>
-            </div>
-            <div [routerLink]="['../../customer/sign-in']" class="mt-4 text-indigo-600 cursor-pointer"> Already have an account? Sign In.</div>
+            <div style="color: rgb(1, 85, 241);" [routerLink]="['../../customer/sign-in']" class="mt-4 text-indigo-600 cursor-pointer"> Already have an account? Sign In.</div>
         </form>
     </div>
     

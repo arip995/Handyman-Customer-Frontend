@@ -1,5 +1,5 @@
 mat-toolbar {
-    background: #035aa1;
+    background: rgb(1, 85, 241);
     color: white;
 }
 
@@ -8,9 +8,14 @@ mat-sidenav {
     // @media screen and (min-width: 800px) {
     //     width: 300px;
     // }
+    // @media screen and (min-width: 800px) {
+    //     margin-right: 32px;
+    //     padding-right: 16px;
+    // }
     width: 300px;
     border-right: none;
-    background: #606f7b;
+    // background: #606f7b;
+    background: rgb(1, 85, 241);
     color: white;
     border-radius: 10px;
     padding: 16px;
@@ -21,15 +26,13 @@ mat-sidenav {
     min-height: calc(100vh - 98px);
     border-radius: 10px;
     margin: 16px;
-    // @media screen and (min-width: 800px) {
-    //     margin-left: 32px;
-    // }
-    display: flex;
+    margin-left: 32px;
+    // display: flex;
     justify-content: center;
     align-items: center;
 
     font-size: 2rem;
-    color: lightgray;
+    // color: lightgray;
 }
 
 mat-sidenav-container {
@@ -50,9 +53,7 @@ mat-sidenav-container {
 }
 
 .avatar {
-    // @media screen and (min-width: 800px) {
-        margin-left: 85px;
-    // }
+    margin-left: 85px;
     margin-top: 16px;
     width: 100px;
     height: 100px;

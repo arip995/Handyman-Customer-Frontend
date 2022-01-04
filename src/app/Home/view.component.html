@@ -1,5 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'||'side'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">
             menu
         </mat-icon>
@@ -20,27 +20,27 @@
 
         <mat-divider></mat-divider> -->
 
-        <button (click)="onContentChange('Home')" mat-button class="menu-button hover:bg-black">
+        <button (click)="onContentChange('Home')" mat-button class="menu-button hover:bg-blue-500 focus:bg-blue-500">
             <mat-icon>home</mat-icon>
             <span class="font-thin ml-2">Home</span>
         </button>
-        <button (click)="onContentChange('Profile')" mat-button class="menu-button hover:bg-black">
+        <button (click)="onContentChange('Profile')" mat-button class="menu-button hover:bg-blue-500 focus:bg-blue-500">
             <mat-icon>person</mat-icon>
             <span class="font-thin ml-2">Profile</span>
         </button>
-        <button (click)="onContentChange('History')" mat-button class="menu-button hover:bg-black">
+        <button (click)="onContentChange('History')" mat-button class="menu-button hover:bg-blue-500 focus:bg-blue-500">
             <mat-icon>history</mat-icon>
             <span class="font-thin ml-2">History</span>
         </button>
 
         <mat-divider></mat-divider>
 
-        <button (click)="onContentChange('About')" mat-button class="menu-button hover:bg-black">
+        <button (click)="onContentChange('About')" mat-button class="menu-button hover:bg-blue-500 focus:bg-blue-500">
             <mat-icon>info</mat-icon>
             <span class="font-thin ml-2">About</span>
         </button>
 
-        <button (click)="onContentChange('Help')" mat-button class="menu-button hover:bg-black">
+        <button (click)="onContentChange('Help')" mat-button class="menu-button hover:bg-blue-500 focus:bg-blue-500">
             <mat-icon>help</mat-icon>
             <span class="font-thin ml-2">Help</span>
         </button>
@@ -55,7 +55,7 @@
 
         <ng-container *ngIf="content === 'Profile'">
             <div class="content mat-elevation-z8">
-                Profile
+                <profile></profile>
             </div>
         </ng-container>
 

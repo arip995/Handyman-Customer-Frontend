@@ -14,14 +14,17 @@
             <div>
                 <mat-form-field class="w-full" appearance="outline" >
                     <mat-label>Password</mat-label>
-                    <input required matInput type="password" [formControlName]="'password'">
+                    <input required matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
                     <mat-error *ngIf="checkError('required')">Required</mat-error>
                 </mat-form-field>
             </div>
             <div>
-                <button (click)="signIn()" mat-raised-button class="w-full" color="primary">Sign In</button>
+                <button style="color: white; background-color: rgb(1, 85, 241);" type="submit" (click)="signIn()" mat-raised-button class="w-full" color="primary">Sign In</button>
             </div>
-            <div [routerLink]="['../../customer/sign-up']" class="mt-4 text-indigo-600 cursor-pointer">Create an account. Sign Up.</div>
+            <div style="color: rgb(1, 85, 241);" [routerLink]="['../../customer/sign-up']" class="mt-4 text-indigo-600 cursor-pointer">Create an account. Sign Up.</div>
         </form>
     </div>
 </div>

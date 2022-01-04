@@ -7,6 +7,7 @@ import { FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class SignInComponent implements OnInit {
     signInForm: FormGroup;
+    hide:boolean = true;
     //Constructor
     constructor(private _formBuilder: FormBuilder){
         this.signInForm = _formBuilder.group({

@@ -1,0 +1,80 @@
+<mat-toolbar class="mat-elevation-z8">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Handyman
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <!-- <img class="ml-9 avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+
+        <h4 class="name">John Smith</h4>
+        <p class="designation">Software Engineer</p> 
+
+        <mat-divider></mat-divider> -->
+
+        <button (click)="onContentChange('Home')" mat-button class="menu-button hover:bg-black">
+            <mat-icon>home</mat-icon>
+            <span class="font-thin ml-2">Home</span>
+        </button>
+        <button (click)="onContentChange('Profile')" mat-button class="menu-button hover:bg-black">
+            <mat-icon>person</mat-icon>
+            <span class="font-thin ml-2">Profile</span>
+        </button>
+        <button (click)="onContentChange('History')" mat-button class="menu-button hover:bg-black">
+            <mat-icon>history</mat-icon>
+            <span class="font-thin ml-2">History</span>
+        </button>
+
+        <mat-divider></mat-divider>
+
+        <button (click)="onContentChange('About')" mat-button class="menu-button hover:bg-black">
+            <mat-icon>info</mat-icon>
+            <span class="font-thin ml-2">About</span>
+        </button>
+
+        <button (click)="onContentChange('Help')" mat-button class="menu-button hover:bg-black">
+            <mat-icon>help</mat-icon>
+            <span class="font-thin ml-2">Help</span>
+        </button>
+
+    </mat-sidenav>
+    <!-- <mat-sidenav-content> -->
+        <ng-container *ngIf="content === 'Home'">
+            <div class="content mat-elevation-z8">
+                Home
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="content === 'Profile'">
+            <div class="content mat-elevation-z8">
+                Profile
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="content === 'History'">
+            <div class="content mat-elevation-z8">
+                History
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="content === 'About'">
+            <div class="content mat-elevation-z8">
+                About
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="content === 'Help'">
+            <div class="content mat-elevation-z8">
+                Help
+            </div>
+        </ng-container>
+    <!-- </mat-sidenav-content> -->
+</mat-sidenav-container>
